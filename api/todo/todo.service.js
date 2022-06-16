@@ -1,3 +1,5 @@
+const utilService = require('../../services/util')
+
 const TODOS = [
     {
         _id: 't1',
@@ -39,6 +41,18 @@ const query = async () => {
     }
 }
 
+const addTodo = async (todo) => {
+    try {
+        todo._id = utilService.makeId()
+        TODOS.unshift(todo)
+        return todo
+    } catch (err) {
+        throw new Error(err)
+    }
+}
+
+
 module.exports = {
-    query
+    query,
+    addTodo
 }
