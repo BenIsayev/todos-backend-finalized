@@ -41,6 +41,14 @@ const query = async () => {
     }
 }
 
+const getById = async (todoId) => {
+    try {
+        return TODOS.find(todo => todo._id === todoId)
+    } catch (err) {
+        throw new Error(err)
+    }
+}
+
 const addTodo = async (todo) => {
     try {
         todo._id = utilService.makeId()
@@ -81,6 +89,7 @@ const editTodo = async (editedTodo) => {
 
 module.exports = {
     query,
+    getById,
     addTodo,
     deleteTodo,
     editTodo

@@ -6,8 +6,18 @@ const query = async (req, res) => {
         res.send(todos)
     } catch (err) {
         throw new Error(err)
-
     }
+}
+
+const getById = async (req, res) => {
+    try {
+        const { todoId } = req.params
+        const todo = await todoService.getById(todoId)
+        res.send(todo)
+    } catch (err) {
+        throw new Error(err)
+    }
+
 }
 
 const addTodo = async (req, res) => {
@@ -42,6 +52,7 @@ const editTodo = async (req, res) => {
 
 module.exports = {
     query,
+    getById,
     addTodo,
     deleteTodo,
     editTodo
