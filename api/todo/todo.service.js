@@ -65,9 +65,23 @@ const deleteTodo = async (todoId) => {
     }
 }
 
+const editTodo = async (editedTodo) => {
+    try {
+        const todoIdx = TODOS.findIndex(todo => todo._id === editedTodo._id)
+        if (todoIdx === -1) {
+            throw new Error('Todo not found')
+        } else {
+            TODOS.splice(todoIdx, 1, editedTodo)
+            return 'Todo edited successfully'
+        }
+    } catch (err) {
+        throw new Error(err)
+    }
+}
 
 module.exports = {
     query,
     addTodo,
-    deleteTodo
+    deleteTodo,
+    editTodo
 }

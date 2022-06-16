@@ -17,7 +17,6 @@ const addTodo = async (req, res) => {
         res.send(addedTodo)
     } catch (err) {
         throw new Error(err)
-
     }
 }
 
@@ -31,8 +30,19 @@ const deleteTodo = async (req, res) => {
     }
 }
 
+const editTodo = async (req, res) => {
+    try {
+        const todo = req.body;
+        const successMessage = await todoService.editTodo(todo)
+        res.send(successMessage)
+    } catch (err) {
+        throw new Error(err)
+    }
+}
+
 module.exports = {
     query,
     addTodo,
-    deleteTodo
+    deleteTodo,
+    editTodo
 }
