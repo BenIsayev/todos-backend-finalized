@@ -33,8 +33,8 @@ const deleteTodo = async (req, res) => {
 const editTodo = async (req, res) => {
     try {
         const todo = req.body;
-        const successMessage = await todoService.editTodo(todo)
-        res.send(successMessage)
+        const editedTodo = await todoService.editTodo(todo)
+        res.send(editedTodo)
     } catch (err) {
         throw new Error(err)
     }

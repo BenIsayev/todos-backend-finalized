@@ -72,7 +72,7 @@ const editTodo = async (editedTodo) => {
             throw new Error('Todo not found')
         } else {
             TODOS.splice(todoIdx, 1, editedTodo)
-            return 'Todo edited successfully'
+            return editedTodo
         }
     } catch (err) {
         throw new Error(err)
