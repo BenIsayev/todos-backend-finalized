@@ -8,7 +8,7 @@ const todoRoutes = require('./api/todo/todo.routes')
 app.use(express.json())
 
 
-app.use(cors('http://localhost:3030'))
+app.use(cors({ origin: ['http://localhost:3030', 'https://benisayev.github.io/todos-frontend/'] }))
 
 app.use('/api/todo/', todoRoutes)
 
