@@ -21,7 +21,18 @@ const addTodo = async (req, res) => {
     }
 }
 
+const deleteTodo = async (req, res) => {
+    try {
+        const { todoId } = req.params
+        const successMessage = await todoService.deleteTodo(todoId)
+        res.send(successMessage)
+    } catch (err) {
+        throw new Error(err)
+    }
+}
+
 module.exports = {
     query,
-    addTodo
+    addTodo,
+    deleteTodo
 }
